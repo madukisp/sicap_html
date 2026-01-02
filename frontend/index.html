@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Processador SICAP</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="glass-card">
+            <h1>Envio SICAP</h1>
+            <p class="subtitle">Automatização e Validação de Dados</p>
+
+            <form id="sicap-form" method="POST" action="/api/processar">
+                <div class="input-group">
+                    <!-- Added name and autocomplete for browser password saving -->
+                    <input type="text" id="sicap-user" name="username" class="input-field" placeholder="Usuário SICAP"
+                        required autocomplete="username">
+                    <input type="password" id="sicap-pass" name="password" class="input-field" placeholder="Senha SICAP"
+                        required autocomplete="current-password">
+                </div>
+
+                <!-- Seleção de Ano -->
+                <div class="selection-group">
+                    <label class="group-label">Ano de Referência</label>
+                    <div class="radio-options">
+                        <label class="radio-chip">
+                            <input type="radio" name="ano" value="2025" required>
+                            <span>2025</span>
+                        </label>
+                        <label class="radio-chip">
+                            <input type="radio" name="ano" value="2026" required>
+                            <span>2026</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Seleção de Mês -->
+                <div class="selection-group">
+                    <label class="group-label">Mês de Referência</label>
+                    <div class="radio-grid">
+                        <label class="radio-chip">
+                            <input type="radio" name="mes" value="jan" required>
+                            <span>Jan</span>
+                        </label>
+                        <label class="radio-chip">
+                            <input type="radio" name="mes" value="fev">
+                            <span>Fev</span>
+                        </label>
+                        <label class="radio-chip">
+                            <input type="radio" name="mes" value="mar">
+                            <span>Mar</span>
+                        </label>
+                        <label class="radio-chip">
+                            <input type="radio" name="mes" value="abr">
+                            <span>Abr</span>
+                        </label>
+                        <label class="radio-chip">
+                            <input type="radio" name="mes" value="mai">
+                            <span>Mai</span>
+                        </label>
+                        <label class="radio-chip">
+                            <input type="radio" name="mes" value="jun">
+                            <span>Jun</span>
+                        </label>
+                        <label class="radio-chip">
+                            <input type="radio" name="mes" value="jul">
+                            <span>Jul</span>
+                        </label>
+                        <label class="radio-chip">
+                            <input type="radio" name="mes" value="ago">
+                            <span>Ago</span>
+                        </label>
+                        <label class="radio-chip">
+                            <input type="radio" name="mes" value="set">
+                            <span>Set</span>
+                        </label>
+                        <label class="radio-chip">
+                            <input type="radio" name="mes" value="out">
+                            <span>Out</span>
+                        </label>
+                        <label class="radio-chip">
+                            <input type="radio" name="mes" value="nov">
+                            <span>Nov</span>
+                        </label>
+                        <label class="radio-chip">
+                            <input type="radio" name="mes" value="dez">
+                            <span>Dez</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="upload-area" id="upload-area">
+                    <i class="fa-solid fa-cloud-arrow-up upload-icon"></i>
+                    <p>Arraste e solte sua planilha aqui</p>
+                    <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.5rem;">ou clique para
+                        selecionar
+                        (.xlsx)</p>
+                    <input type="file" id="file-upload" accept=".xlsx, .xls">
+                </div>
+
+                <div class="file-info">
+                    <p id="file-label" style="font-weight: 600;">Arquivo selecionado:</p>
+                    <p id="file-name" style="color: #a855f7; margin-bottom: 1.5rem; word-break: break-all;"></p>
+                </div>
+
+                <button type="submit" id="submit-btn" class="btn-primary" disabled>
+                    Enviar para SICAP
+                </button>
+            </form>
+
+            <div id="status-area"></div>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+
+</html>
