@@ -5,7 +5,9 @@ from fastapi.responses import JSONResponse
 import shutil
 import os
 import uuid
-from processor import processar_planilha
+from .processor import processar_planilha
+
+
 
 app = FastAPI(title="SICAP Uploader", version="1.0.0")
 
